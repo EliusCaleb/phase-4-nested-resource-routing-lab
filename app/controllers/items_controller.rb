@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  
   def index
     if params[:user_id]
       user = User.find(params[:user_id])
@@ -31,5 +32,5 @@ class ItemsController < ApplicationController
     params.permit(:name, :description, :price, :user_id)
   end
 
-  
+
 end
